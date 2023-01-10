@@ -91,7 +91,7 @@ h6 {
 
 body {
     font-family: sans-serif;
-    background: #FFF url('../tablecloth.jpg') 0 0 no-repeat;
+    background: #FFF url('tablecloth.jpg') 0 0 no-repeat;
 }
 
 .title {
