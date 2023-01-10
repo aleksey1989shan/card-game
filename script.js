@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const card = document.querySelectorAll('.card')
         const number = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8,];
         const text = document.querySelectorAll('.text')
-        const numCard = [null, null, null];
+        const numCard = [];
         const arrayIndex = [];
         const id = [];
 
@@ -15,27 +15,22 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         shuffle(number);
 
-        console.log(shuffle);
-
         for (let i of card) {
             i.addEventListener('click', () => {
                 i.classList.add('open')
                 numCard.unshift(i.textContent)
                 arrayIndex.push(i)
-                console.log(arrayIndex);
-                let ostatok = arrayIndex.length % 2
-
+                let remainder = arrayIndex.length % 2
                 id.unshift(i.id)
-                console.log(id);
 
-                if (numCard[-1] != numCard[1] && numCard[1] != null && ostatok == 1) {
+                if (numCard[-1] != numCard[1] && remainder == 1) {
                     arrayIndex[arrayIndex.length - 2].classList.remove('open');
                     arrayIndex[arrayIndex.length - 3].classList.remove('open');
                 }
 
                 let openCard = document.querySelectorAll('.open');
 
-                if (numCard[0] == numCard[1] && ostatok == 0 && id[1] != id[0]) {
+                if (numCard[0] == numCard[1] && remainder == 0 && id[1] != id[0]) {
 
                     for (let i of openCard) {
                         i.classList.add('closed')
